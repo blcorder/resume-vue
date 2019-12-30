@@ -8,12 +8,14 @@ import Todaylist from "../pages/Todaylist";
 
 // 懒加载引入其他路由
 const Tommorowlist = () => import('../pages/Tommorowlist');
+const Todolist = () => import('../pages/Todolist');
 
 let router = new Router({
     routes: [
-        {path: '/', redirect: '/Todaylist'},
-        {path: '/Todaylist', component: Todaylist, meta: {"title": "今日要做"}},
-        {path: '/Tommorowlist', component: Tommorowlist, meta: {title: "明日要做"}}
+        {path: '/', redirect: '/Todolist'},
+        {path: '/Todolist', component: Todolist, meta: {title: "个人简历"}},
+        {path: '/Todaylist', component: Todaylist, meta: {"title": "今日日程"}},
+        {path: '/Tommorowlist', component: Tommorowlist, meta: {title: "个人中心"}},
     ]
 });
 export default router;

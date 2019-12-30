@@ -1,12 +1,16 @@
 <template>
     <div id="container">
-        <div class="item" @click="change('/Todaylist')">
-            <img :src="$route.path.includes('Todaylist')?todaySelected:todayBarSrc" alt="">
-            <span :class="$route.path.includes('Todaylist')?'active':''">主页</span>
+        <div class="item" @click="change('/Todolist')">
+            <img :src="$route.path.includes('Todolist')?todaySelected:todayBarSrc" alt="">
+            <span :class="$route.path.includes('Todolist')?'active':''">简历</span>
         </div>
         <div class="item" @click="change('/Tommorowlist')">
             <img :src="$route.path.includes('Tommorowlist')?tommorowSelected:tommorowBarSrc" alt="">
-            <span :class="$route.path.includes('Tommorowlist')?'active':''">个人</span>
+            <span :class="$route.path.includes('Tommorowlist')?'active':''">项目</span>
+        </div>
+        <div class="item" @click="change('/Todaylist')">
+            <img :src="$route.path.includes('Todaylist')?todoSrcSelected:todoSrc" alt="">
+            <span :class="$route.path.includes('Todaylist')?'active':''">日程</span>
         </div>
     </div>
 </template>
@@ -16,10 +20,12 @@
         name: "Tabbar",
         data() {
             return {
-                todayBarSrc: require('../assets/today.png'),
-                todaySelected: require('../assets/today_s.png'),
-                tommorowBarSrc: require('../assets/tommorow.png'),
-                tommorowSelected: require('../assets/tomorrow_s.png')
+                todayBarSrc: require('../assets/tabBar/today.png'),
+                todaySelected: require('../assets/tabBar/today_s.png'),
+                tommorowBarSrc: require('../assets/tabBar/tommorow.png'),
+                tommorowSelected: require('../assets/tabBar/tomorrow_s.png'),
+                todoSrc: require('../assets/tabBar/calendar.png'),
+                todoSrcSelected: require('../assets/tabBar/calendar_s.png')
             }
         },
         methods: {
@@ -34,7 +40,7 @@
 <style scoped>
     #container {
         width: 100%;
-        height: 50px;
+        height: 60px;
         background-color: #ffffff;
         display: flex;
         flex-direction: row;
@@ -43,6 +49,7 @@
         position: fixed;
         left: 0;
         bottom: 0;
+        border-top: 1px solid #EBEEF5;
     }
 
     #container .item {
@@ -61,6 +68,6 @@
     }
 
     .active {
-        color: #d81e06!important;
+        color: #00d8a0 !important;
     }
 </style>

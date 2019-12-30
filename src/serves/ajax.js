@@ -5,11 +5,12 @@ export const ajax = (url, param = {}, type = 'get') => {
     return new Promise((resolve, reject) => {
         /*  get请求  */
         if (type.toUpperCase() === 'GET') {
+            let jsonArr = Object.keys(param);
             let str = '';
-            for (let item in Object.keys(param)) {
-                str += item + '=' + param[item] + '&';
+            for (let item in jsonArr) {
+                str += jsonArr[item] + '=' + param[jsonArr[item]] + '&'
             }
-            url += str.substring(0, str.lastIndexOf('&'));
+            url += '?' + str.substring(0, str.lastIndexOf('&'));
             promise = axios.get(url);
         } else if (type.toUpperCase() === 'POST') {
             promise = axios.post(url, param);
@@ -20,4 +21,4 @@ export const ajax = (url, param = {}, type = 'get') => {
             reject(err);
         })
     })
-}
+};

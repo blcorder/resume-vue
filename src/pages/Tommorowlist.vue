@@ -1,19 +1,20 @@
 <template>
     <div id="container">
-        我往上推
+<!--        个人信息-->
+        <div>正在开发...</div>
     </div>
 </template>
 
 <script>
     export default {
-        name: "Tommorowlist"
+        name: "Tommorowlist",
+
     }
 </script>
 
 <style scoped>
     #container{
         width: 100%;
-        background-color: red;
         flex: 1;
     }
 </style>
